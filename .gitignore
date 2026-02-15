@@ -1,0 +1,10 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.mdf
+*.ldf
+App.config.local
+appsettings.json
+*.edmx.diagram
