@@ -83,6 +83,7 @@
             this.btnLog.TabIndex = 2;
             this.btnLog.Text = "Вход";
             this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click +=  new  System.EventHandler(this.btnLog_ClickAsync);
             // 
             // linkL
             // 
@@ -94,6 +95,7 @@
             this.linkL.TabIndex = 3;
             this.linkL.TabStop = true;
             this.linkL.Text = "Регистрация";
+            this.linkL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkL_LinkClicked);
             // 
             // lblError
             // 
@@ -120,7 +122,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Password);
             this.Name = "LoginForm";
-            this.Text = "Form1";
+            this.Text = "Messenger Top";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

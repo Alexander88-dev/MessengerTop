@@ -59,6 +59,7 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnReg
             // 
@@ -69,6 +70,7 @@
             this.btnReg.TabIndex = 2;
             this.btnReg.Text = "Регистрация";
             this.btnReg.UseVisualStyleBackColor = true;
+            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
             // label2
             // 
@@ -139,7 +141,7 @@
             this.lblPassEr.TabIndex = 4;
             this.lblPassEr.Text = "label1";
             // 
-            // Form1
+            // RegistrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,8 +157,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblLog);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "RegistrForm";
+            this.Text = "Messenger Top";
             this.ResumeLayout(false);
             this.PerformLayout();
 

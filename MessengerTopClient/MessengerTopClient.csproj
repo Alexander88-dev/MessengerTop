@@ -75,6 +75,7 @@
     <Compile Include="ChangeNameForm.Designer.cs">
       <DependentUpon>ChangeNameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServerConnection.cs" />
     <Compile Include="SettForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,8 +102,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChangeNameForm.resx">
+      <DependentUpon>ChangeNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateGroupForm.resx">
+      <DependentUpon>CreateGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessengerForm.resx">
+      <DependentUpon>MessengerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="RegistrForm.resx">
       <DependentUpon>RegistrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettForm.resx">
+      <DependentUpon>SettForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

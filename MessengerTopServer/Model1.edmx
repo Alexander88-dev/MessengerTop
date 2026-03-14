@@ -197,7 +197,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServerTopEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ServerTopEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Chat" EntityType="Self.Chat" />
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -221,7 +221,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ServerTopModelStoreContainer" CdmEntityContainer="ServerTopEntities">
+        <EntityContainerMapping StorageEntityContainer="ServerTopModelStoreContainer" CdmEntityContainer="ServerTopEntities1">
           <EntitySetMapping Name="Chat">
             <EntityTypeMapping TypeName="ServerTopModel.Chat">
               <MappingFragment StoreEntitySet="Chat">

@@ -95,7 +95,7 @@
             this.lblNameG.TabIndex = 1;
             this.lblNameG.Text = "Название группы :";
             // 
-            // CreateGroupForm
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,8 +108,8 @@
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnCancel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "CreateGroupForm";
-            this.Text = "Form3";
+            this.Name = "Form1";
+            this.Text = "Messenger Top";
             this.ResumeLayout(false);
             this.PerformLayout();
 
