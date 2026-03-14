@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label = new System.Windows.Forms.Label();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.написатьСообщениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеСообщенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пригласитьВГруппуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2.SuspendLayout();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -51,51 +52,43 @@
             this.btnSettings.Text = "Настройки";
             this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBox
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(12, 64);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(342, 704);
-            this.listBox1.TabIndex = 1;
+            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 20;
+            this.listBox.Location = new System.Drawing.Point(12, 64);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(304, 544);
+            this.listBox.TabIndex = 1;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.4F);
-            this.richTextBox1.Location = new System.Drawing.Point(360, 64);
+            this.richTextBox1.Location = new System.Drawing.Point(322, 64);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(759, 706);
+            this.richTextBox1.Size = new System.Drawing.Size(814, 502);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
-            // label1
+            // label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(366, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
-            this.label1.TabIndex = 3;
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.Location = new System.Drawing.Point(324, 14);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(36, 39);
+            this.label.TabIndex = 5;
+            this.label.Text = "_";
             // 
-            // label2
+            // contextMenuStrip
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label2.Location = new System.Drawing.Point(411, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 25);
-            this.label2.TabIndex = 5;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.написатьСообщениеToolStripMenuItem,
             this.удалитьВсеСообщенияToolStripMenuItem,
             this.пригласитьВГруппуToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(207, 70);
+            this.contextMenuStrip.Name = "contextMenuStrip2";
+            this.contextMenuStrip.Size = new System.Drawing.Size(207, 70);
             // 
             // написатьСообщениеToolStripMenuItem
             // 
@@ -115,20 +108,39 @@
             this.пригласитьВГруппуToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.пригласитьВГруппуToolStripMenuItem.Text = "Пригласить в группу";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(322, 564);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(725, 47);
+            this.textBox1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(1044, 564);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 50);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "▶";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MessengerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1131, 776);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.btnSettings);
             this.Name = "MessengerForm";
-            this.Text = "Form2";
-            this.contextMenuStrip2.ResumeLayout(false);
+            this.Text = "Messenger Top";
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,13 +149,14 @@
         #endregion
 
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem написатьСообщениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьВсеСообщенияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem пригласитьВГруппуToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

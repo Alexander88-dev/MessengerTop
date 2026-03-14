@@ -97,7 +97,7 @@
             this.Controls.Add(this.btnCancel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "ChangeNameForm";
-            this.Text = "Form3";
+            this.Text = "Messenger Top";
             this.ResumeLayout(false);
             this.PerformLayout();
 
