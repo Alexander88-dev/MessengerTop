@@ -24,6 +24,7 @@ namespace MessengerTopServer
                 _ = HandleClientAsync(client);
             }
         }
+
         static async Task HandleClientAsync(TcpClient client)
         {
             try
@@ -52,6 +53,19 @@ namespace MessengerTopServer
                         {
                             string[] parts = request.Split('|');
                             string res = await AuthService.RegisterAsync(parts[1], parts[2], parts[3]);
+                        }
+
+                        if (request.StartsWith("Change_Nick"))
+                        {
+                            string[] parts = request.Split('|');
+
+                            string login = parts[1];
+                            string NewNick = parts[2];
+
+                            string result = await AuthService.ChangeNickAsync(login, NewNick);
+
+                            await writer.WriteLineAsync(result);
+
                         }
                     }
                 }

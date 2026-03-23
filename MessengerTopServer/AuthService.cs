@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//Модель ServerTopEntities1 
+
 namespace MessengerTopServer
 {
     internal class AuthService
@@ -50,6 +50,28 @@ namespace MessengerTopServer
                     Lvl = 0
                 };
                 db.User.Add(user);
+                await db.SaveChangesAsync();
+
+                return "SUCCESS";
+            }
+        }
+        public static async Task<string> ChangeNickAsync(string login, string NewNick)
+        {
+            using (var db = new ServerTopEntities1())
+            {
+                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
+
+                if (user == null)
+                {
+                    return "Not_found";
+                }
+
+                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login != login);
+                if (nickExists)
+                {
+                    return "NICK_EXISTS";
+                }
+                user.Nick = NewNick;
                 await db.SaveChangesAsync();
 
                 return "SUCCESS";
