@@ -65,4 +65,6 @@ MessengerTop — учебный проект, демонстрирующий р�
 
 ## Автор
 
-- [![]https://github.com/Alexander88-dev]
+<a href="https://github.com/Alexander88-dev">
+  <img src="https://github.com/Alexander88-dev.png" width="50" style="border-radius: 50;%>
+</a>
