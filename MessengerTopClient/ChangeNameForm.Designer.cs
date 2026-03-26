@@ -34,7 +34,7 @@
             this.lblErr = new System.Windows.Forms.Label();
             this.txtBoxChange = new System.Windows.Forms.TextBox();
             this.btnChange = new System.Windows.Forms.Button();
-            //this.SuspendLayout();
+            this.SuspendLayout();
             // 
             // btnCancel
             // 
@@ -87,20 +87,9 @@
             // 
             // ChangeNameForm
             // 
-            //this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            //this.ClientSize = new System.Drawing.Size(412, 238);
-            //this.Controls.Add(this.txtBoxChange);
-            //this.Controls.Add(this.lblErr);
-            //this.Controls.Add(this.lblName);
-            //this.Controls.Add(this.btnChange);
-            //this.Controls.Add(this.btnCancel);
-            //this.ForeColor = System.Drawing.SystemColors.ControlText;
-            //this.Name = "ChangeNameForm";
-            //this.Text = "Messenger Top";
-            //this.ResumeLayout(false);
-            //this.PerformLayout();
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "ChangeNameForm";
+            this.ResumeLayout(false);
 
         }
 

@@ -85,12 +85,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(12, 162);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(-5, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 17);
+            this.label3.Size = new System.Drawing.Size(119, 40);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Подтвердите пароль :";
+            this.label3.Text = "Подтвердите \r\n     пароль :";
             // 
             // txtLog
             // 
@@ -112,10 +112,10 @@
             // txtConfirmPass
             // 
             this.txtConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtConfirmPass.Location = new System.Drawing.Point(172, 159);
+            this.txtConfirmPass.Location = new System.Drawing.Point(120, 159);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.PasswordChar = '*';
-            this.txtConfirmPass.Size = new System.Drawing.Size(211, 24);
+            this.txtConfirmPass.Size = new System.Drawing.Size(263, 24);
             this.txtConfirmPass.TabIndex = 3;
             // 
             // lblLogEr
