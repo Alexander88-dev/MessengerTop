@@ -15,6 +15,7 @@ namespace MessengerTopClient
         public MessengerForm()
         {
             InitializeComponent();
+            
         }
     }
 }

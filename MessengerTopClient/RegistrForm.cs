@@ -17,18 +17,6 @@ namespace MessengerTopClient
         {
             InitializeComponent();
         }
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new MailAddress(email);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
 
         private bool ShowError(string message)
         {

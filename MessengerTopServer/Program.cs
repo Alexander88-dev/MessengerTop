@@ -19,8 +19,7 @@ namespace MessengerTopServer
             Console.WriteLine("Server started on port 5000");
             while (true)
             {
-                TcpClient client = listener.AcceptTcpClient();
-                //Task.Run(() => HandleClient(client));
+                TcpClient client = await listener.AcceptTcpClientAsync();
                 _ = HandleClientAsync(client);
             }
         }
@@ -46,13 +45,23 @@ namespace MessengerTopServer
                         if (request.StartsWith("LOGIN"))
                         {
                             string[] parts = request.Split('|');
-                            string result = (await AuthService.LoginAsync(parts[1], parts[2]));
+                            string result = await AuthService.LoginAsync(parts[1], parts[2]);
                             await writer.WriteLineAsync(result);
                         }
                         if (request.StartsWith("REGISTER"))
                         {
                             string[] parts = request.Split('|');
                             string res = await AuthService.RegisterAsync(parts[1], parts[2]);
+                            await writer.WriteLineAsync(res);
+                        }
+
+                        if (request.StartsWith("USERS_LIST"))//!!
+                        {
+                            string[] parts = request.Split('|');
+
+                            //string result = await AuthService.ChangeNickAsync(parts[1]);
+
+                           // await writer.WriteLineAsync(result);
                         }
                         if (request.StartsWith("CHANGE_NICK"))
                         {
@@ -65,6 +74,7 @@ namespace MessengerTopServer
 
                             await writer.WriteLineAsync(result);
                         }
+
                     }
                 }
             }
