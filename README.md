@@ -69,4 +69,12 @@ MessengerTop — учебный проект, демонстрирующий р�
   <img src="https://github.com/Alexander88-dev.png" width="50" style="border-radius: 50%; object-fit: cover;">
 </a>
 
--  Отдельная благодарность учителю
+## Благодарность
+
+<a href="https://github.com/DaRnE1011">
+  <img src="https://github.com/DaRnE1011.png" width="50" style="border-radius: 50%; object-fit: cover;">
+</a>
+
+<a href="https://github.com/Aleksey1161">
+  <img src="https://github.com/Aleksey1161.png" width="50" style="border-radius: 50%; object-fit: cover;">
+</a>
