@@ -63,10 +63,10 @@ namespace MessengerTopClient
         {
             string login = txtLog.Text;
             string password = txtPass.Text;
-            string email = txtConfirmPass.Text;
             if (ValidateFrom())
             {
-                string responce = await Program.connection.SendAsync($"REGISTER|{login}|{password}|{email}");
+                string responce = await Program.connection.SendAsync($"REGISTER|{login}|{password}");
+                
                 switch (responce)
                 {
                     case "SUCCESS":

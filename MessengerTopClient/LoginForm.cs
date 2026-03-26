@@ -27,7 +27,7 @@ namespace MessengerTopClient
             string login = txtLog.Text;
             string password = txtPass.Text;
 
-            string response = (Program.connection.SendAsync($"LOGIN|{login}|{password}")).ToString();
+            string response = await Program.connection.SendAsync($"LOGIN|{login}|{password}");
 
              switch (response)
             {

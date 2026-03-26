@@ -30,7 +30,7 @@ namespace MessengerTopServer
                 return "SUCCESS";
             }
         }
-        public static async Task<string> RegisterAsync(string username, string password, string email)
+        public static async Task<string> RegisterAsync(string username, string password)
         {
             using (var db = new ServerTopEntities1())
             {
@@ -63,7 +63,7 @@ namespace MessengerTopServer
 
                 if (user == null)
                 {
-                    return "Not_found";
+                    return "NOT_FOUND";
                 }
 
                 bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login != login);
