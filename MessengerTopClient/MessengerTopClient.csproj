@@ -69,9 +69,7 @@
       <DependentUpon>CreateGroupForm.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeNameForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ChangeNameForm.cs" />
     <Compile Include="ChangeNameForm.Designer.cs">
       <DependentUpon>ChangeNameForm.cs</DependentUpon>
     </Compile>

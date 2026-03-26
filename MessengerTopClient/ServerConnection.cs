@@ -24,7 +24,7 @@ namespace MessengerTopClient
             _writer = new StreamWriter(stream)
             { AutoFlush = true };
         }
-        public async Task<string> SendAsync(string message)
+        public async Task <string> SendAsync(string message)
         {
             await _writer.WriteLineAsync(message);
             return await _reader.ReadLineAsync();
@@ -34,6 +34,11 @@ namespace MessengerTopClient
             _reader.Close();
             _writer.Close();
             _client.Close();
+        }
+        public async Task<string> ChangeNameAsync(int userId, string newName)//Ал
+        {
+            string request = $"CHANGENAME|{userId}|{newName}";
+            return await SendAsync(request);
         }
     }
 }
