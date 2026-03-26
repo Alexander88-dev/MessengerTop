@@ -84,7 +84,7 @@ MessengerTop — учебный проект, демонстрирующий р�
 </a>
 
 <a href="https://github.com/Ssaranov">
-  <img src="https://github.com/kay-Ssaranov.png" width="50" style="border-radius: 50%; object-fit: cover;">
+  <img src="https://github.com/Ssaranov.png" width="50" style="border-radius: 50%; object-fit: cover;">
 </a>
 
 ## Отдельная благодарность учителю
