@@ -63,7 +63,7 @@ MessengerTop — учебный проект, демонстрирующий р�
 - Групповые чаты
 - Веб-интерфейс на ASP.NET Core SignalR
 
-## Автор
+## Авторы
 
 <a href="https://github.com/Alexander88-dev">
   <img src="https://github.com/Alexander88-dev.png" width="50" style="border-radius: 50%; object-fit: cover;">
@@ -76,11 +76,12 @@ MessengerTop — учебный проект, демонстрирующий р�
   <img src="https://github.com/DaRnE1011.png" width="50" style="border-radius: 50%; object-fit: cover;">
 </a>
 
-## Благодарность
-
 <a href="https://github.com/Aleksey1161">
   <img src="https://github.com/Aleksey1161.png" width="50" style="border-radius: 50%; object-fit: cover;">
 </a>
+## Благодарность
+
+
 
 <a href="https://github.com/kay-anjel228">
   <img src="https://github.com/kay-anjel228.png" width="50" style="border-radius: 50%; object-fit: cover;">
