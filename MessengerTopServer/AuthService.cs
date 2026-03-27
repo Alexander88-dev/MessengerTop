@@ -47,6 +47,7 @@ namespace MessengerTopServer
                 {
                     Login = username,
                     Password = passwordHash,
+                    Nick = "",
                     Lvl = 0
                 };
                 db.User.Add(user);
