@@ -83,7 +83,7 @@
             this.btnLog.TabIndex = 2;
             this.btnLog.Text = "Вход";
             this.btnLog.UseVisualStyleBackColor = true;
-            this.btnLog.Click +=  new  System.EventHandler(this.btnLog_ClickAsync);
+            this.btnLog.Click += new System.EventHandler(this.btnLog_ClickAsync);
             // 
             // linkL
             // 
@@ -102,11 +102,10 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblError.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblError.Location = new System.Drawing.Point(41, 136);
+            this.lblError.Location = new System.Drawing.Point(116, 136);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(41, 15);
+            this.lblError.Size = new System.Drawing.Size(0, 15);
             this.lblError.TabIndex = 4;
-            this.lblError.Text = "label2";
             // 
             // LoginForm
             // 

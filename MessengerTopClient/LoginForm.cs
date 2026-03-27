@@ -31,11 +31,8 @@ namespace MessengerTopClient
 
              switch (response)
             {
-                case "NOT_FOUND":
-                    MessageBox.Show("Не найден пользователь с таким логином");
-                    break;
-                case "WRONG_PASSWORD":
-                    MessageBox.Show("Найден пользователь, но не верный пароль");
+                case "LOGIN_PASSWORD_ERROR":
+                    lblError.Text = "Неверный логин или пароль!";
                     break;
                 case "SUCCESS":
                     MessengerForm mainForm = new MessengerForm();
@@ -44,6 +41,7 @@ namespace MessengerTopClient
                     {
                         this.Show();
                         txtPass.Clear();
+                        lblError.Text = "";
                     };
 
                     mainForm.Show();
@@ -60,6 +58,7 @@ namespace MessengerTopClient
                 this.Show();
                 txtLog.Clear();
                 txtPass.Clear();
+                lblError.Text = "";
             };
             registrationForm.Show();
             this.Hide();

@@ -18,28 +18,27 @@ namespace MessengerTopClient
             InitializeComponent();
         }
 
-        private bool ShowError(string message)
-        {
-            MessageBox.Show(message);
-            return false;
-        }
-
-
         private bool ValidateFrom()
         {
+            bool b = true;
+            lblPassEr.Text = "";
+            lblLogEr.Text = "";
             if (string.IsNullOrEmpty(txtLog.Text))
             {
-                return ShowError("Введите логин");
+                lblLogEr.Text = "Введите логин";
+                b = false;
             }
             if (txtPass.Text.Length < 6)
             {
-                return ShowError("Пароль минимум");
+                lblPassEr.Text = "Пароль минимум 6 символов";
+                b = false;
             }
-            if (txtPass.Text.Length != txtConfirmPass.Text.Length)
+            else if (txtPass.Text.Length != txtConfirmPass.Text.Length)
             {
-                return ShowError("Пароли не совпадают");
+                lblPassEr.Text = "Пароли не совпадают";
+                b = false;
             }
-            return true;
+            return b;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

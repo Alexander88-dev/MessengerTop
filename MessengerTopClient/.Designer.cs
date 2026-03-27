@@ -45,6 +45,7 @@
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Назад";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblGroup
             // 
