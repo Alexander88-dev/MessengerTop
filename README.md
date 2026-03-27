@@ -79,9 +79,6 @@ MessengerTop — учебный проект, демонстрирующий р�
 <a href="https://github.com/Aleksey1161">
   <img src="https://github.com/Aleksey1161.png" width="50" style="border-radius: 50%; object-fit: cover;">
 </a>
-## Благодарность
-
-
 
 <a href="https://github.com/kay-anjel228">
   <img src="https://github.com/kay-anjel228.png" width="50" style="border-radius: 50%; object-fit: cover;">
