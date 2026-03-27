@@ -74,6 +74,7 @@
             this.btnNickname.TabIndex = 2;
             this.btnNickname.Text = "Сменить имя";
             this.btnNickname.UseVisualStyleBackColor = true;
+            this.btnNickname.Click += new System.EventHandler(this.btnNickname_Click);
             // 
             // button1
             // 
@@ -94,6 +95,7 @@
             this.GroupCreatebtn.TabIndex = 3;
             this.GroupCreatebtn.Text = "Создать группу";
             this.GroupCreatebtn.UseVisualStyleBackColor = true;
+            this.GroupCreatebtn.Click += new System.EventHandler(this.GroupCreatebtn_Click);
             // 
             // SettForm
             // 

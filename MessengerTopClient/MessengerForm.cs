@@ -17,5 +17,16 @@ namespace MessengerTopClient
             InitializeComponent();
             
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettForm settForm = new SettForm();
+            settForm.FormClosing += (s, args) =>
+            {
+                this.Show();
+            };
+            settForm.Show();
+            this.Hide();
+        }
     }
 }
