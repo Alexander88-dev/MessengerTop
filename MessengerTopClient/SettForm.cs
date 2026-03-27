@@ -30,14 +30,18 @@ namespace MessengerTopClient
 
         private void btnNickname_Click(object sender, EventArgs e)
         {
-            Form changeNameForm = new Form();
+            ChangeNameForm changeNameForm = new ChangeNameForm();
             changeNameForm.FormClosing += (s, args) =>
             {
                 this.Show();
             };
             changeNameForm.Show();
             this.Hide();
-         
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

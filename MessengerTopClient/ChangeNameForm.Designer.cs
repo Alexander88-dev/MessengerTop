@@ -11,15 +11,14 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing && (components != null))
-        //    {
-        //        components.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
         #region Windows Form Designer generated code
 
@@ -45,6 +44,7 @@
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Назад";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblName
             // 
@@ -87,9 +87,20 @@
             // 
             // ChangeNameForm
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(412, 238);
+            this.Controls.Add(this.txtBoxChange);
+            this.Controls.Add(this.lblErr);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.btnChange);
+            this.Controls.Add(this.btnCancel);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "ChangeNameForm";
+            this.Text = "Form3";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

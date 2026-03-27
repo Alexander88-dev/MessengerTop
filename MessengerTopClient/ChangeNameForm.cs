@@ -16,11 +16,16 @@ namespace MessengerTopClient//!!!!!!!!!!!!!!!!
             //int userId;
         public ChangeNameForm()
         {
+            InitializeComponent();
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         //public ChangeNameForm(int id)
         //{
-        //    InitializeComponent();
         //    userId = id;
         //}
 
@@ -38,15 +43,15 @@ namespace MessengerTopClient//!!!!!!!!!!!!!!!!
         //        MessageBox.Show("Введите нормально имя");
         //        return;
         //    }
-            //using (var db = new())
-            //{
-            //    var user = db.User;
-            //    if (user != null)
-            //    {
-            //        user.Name = txtBoxChange.Text;
-            //        db.SaveChanges();
-            //    }
-            //}
-       // }
+        //using (var db = new())
+        //{
+        //    var user = db.User;
+        //    if (user != null)
+        //    {
+        //        user.Name = txtBoxChange.Text;
+        //        db.SaveChanges();
+        //    }
+        //}
+        // }
     }
 }

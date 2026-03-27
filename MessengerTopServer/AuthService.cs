@@ -17,14 +17,14 @@ namespace MessengerTopServer
 
                 if (user == null)
                 {
-                    return "NOT_FOUND";
+                    return "LOGIN_PASSWORD_ERROR";
                 }
-
+                
                 bool isValid = BCrypt.Net.BCrypt.Verify(password, user.Password);
 
                 if (!isValid)
                 {
-                    return "WRONG_PASSWORD";
+                    return "LOGIN_PASSWORD_ERROR";
                 }
 
                 return "SUCCESS";
