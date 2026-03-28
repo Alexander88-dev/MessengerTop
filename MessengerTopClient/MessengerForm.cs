@@ -32,7 +32,7 @@ namespace MessengerTopClient
         {
             var response = await Program.connection.SendAsync($"USERS_LIST");
 
-            foreach (string item in response.Split('|')) 
+            foreach (string item in response.Split('|'))
             {
                 listBox.Items.Add(item);
             }
