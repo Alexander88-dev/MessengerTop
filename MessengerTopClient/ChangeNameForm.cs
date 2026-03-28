@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace MessengerTopClient//!!!!!!!!!!!!!!!!
+namespace MessengerTopClient//!!!!!!!!
 {
     public partial class ChangeNameForm : Form
     {
@@ -22,6 +22,33 @@ namespace MessengerTopClient//!!!!!!!!!!!!!!!!
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            NickNewAsync();
+        }
+        private async void NickNewAsync()
+        {
+            if (txtBoxChange.Text != "")
+            {
+                try
+                {
+                    var response = await Program.connection.SendAsync($"CHANGE_NICK|{txtBoxChange.Text}");
+                }
+                catch
+                {
+                    lblErr.Text = "Ошибка!";
+                    return;
+                }
+            }
+            else 
+            {
+               lblErr.Text = "Поля ввода пустое";
+               return;
+            }
+
             this.Close();
         }
         //public ChangeNameForm(int id)

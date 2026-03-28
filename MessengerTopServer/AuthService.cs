@@ -58,7 +58,7 @@ namespace MessengerTopServer
             }
         }
 
-        public static async Task<List<string>> UsersListAsync(string login)//!!!!
+        public static async Task<List<string>> UsersListAsync(string login)
         {
             using (var db = new ServerTopEntities2())
             {
@@ -67,29 +67,32 @@ namespace MessengerTopServer
                 {
                     if(login != item.Login) 
                     {
-                        list.Add(item.Login.ToString());   
+                        if (item.Nick != "")// Плохо добавлен ник в БД, но менять не будет
+                        {
+                            list.Add(item.Nick.ToString());
+                            continue;
+                        }
+                        list.Add(item.Login.ToString());
                     }
                 }
                 return list;
             }
         }
-        public static async Task<string> ChangeNickAsync(string login, string NewNick)//!!!!!!!!!!!
+
+        public static async Task<string> ChangeNickAsync(string login, string NewNick)
         {
             using (var db = new ServerTopEntities2())
             {
-                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
-
-                if (user == null)
-                {
-                    return "NOT_FOUND";
-                }
-
-                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login != login);
+               
+                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login == login);
                 if (nickExists)
                 {
                     return "NICK_EXISTS";
                 }
+
+                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
                 user.Nick = NewNick;
+
                 await db.SaveChangesAsync();
 
                 return "SUCCESS";

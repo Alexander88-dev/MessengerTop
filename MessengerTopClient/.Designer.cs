@@ -51,7 +51,7 @@
             // 
             this.lblGroup.AutoSize = true;
             this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblGroup.Location = new System.Drawing.Point(120, 29);
+            this.lblGroup.Location = new System.Drawing.Point(141, 20);
             this.lblGroup.Name = "lblGroup";
             this.lblGroup.Size = new System.Drawing.Size(140, 20);
             this.lblGroup.TabIndex = 1;
@@ -71,9 +71,9 @@
             // txtBoxChange
             // 
             this.txtBoxChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtBoxChange.Location = new System.Drawing.Point(148, 66);
+            this.txtBoxChange.Location = new System.Drawing.Point(99, 66);
             this.txtBoxChange.Name = "txtBoxChange";
-            this.txtBoxChange.Size = new System.Drawing.Size(252, 23);
+            this.txtBoxChange.Size = new System.Drawing.Size(301, 23);
             this.txtBoxChange.TabIndex = 3;
             // 
             // btnCreate
@@ -85,16 +85,17 @@
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Создать";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // lblNameG
             // 
             this.lblNameG.AutoSize = true;
-            this.lblNameG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNameG.Location = new System.Drawing.Point(12, 69);
+            this.lblNameG.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblNameG.Location = new System.Drawing.Point(12, 53);
             this.lblNameG.Name = "lblNameG";
-            this.lblNameG.Size = new System.Drawing.Size(130, 17);
+            this.lblNameG.Size = new System.Drawing.Size(75, 36);
             this.lblNameG.TabIndex = 1;
-            this.lblNameG.Text = "Название группы :";
+            this.lblNameG.Text = "Название\r\n  группы :";
             // 
             // Form1
             // 
