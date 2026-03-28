@@ -259,6 +259,16 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram DiagramId="d0815b4cade047ac98692a2f778873d0" Name="Diagram1">
+        <EntityTypeShape EntityType="ServerTopModel.Chat" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerTopModel.Message" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerTopModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerTopModel.User" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServerTopModel.UserChat" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="ServerTopModel.FK_UserChat_ToChat" ManuallyRouted="false" />
+        <AssociationConnector Association="ServerTopModel.FK_UserChat_ToUser" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>
