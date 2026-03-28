@@ -71,10 +71,9 @@ namespace MessengerTopServer
                         {
                             string[] parts = request.Split('|');
 
-                            string login = parts[1];
-                            string NewNick = parts[2];
+                            string NewNick = parts[1];
 
-                            string result = await AuthService.ChangeNickAsync(login, NewNick);
+                            string result = await AuthService.ChangeNickAsync(loginGlobal, NewNick);
 
                             await writer.WriteLineAsync(result);
                         }

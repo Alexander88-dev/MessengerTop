@@ -61,11 +61,10 @@
             this.lblErr.AutoSize = true;
             this.lblErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblErr.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblErr.Location = new System.Drawing.Point(55, 120);
+            this.lblErr.Location = new System.Drawing.Point(118, 122);
             this.lblErr.Name = "lblErr";
-            this.lblErr.Size = new System.Drawing.Size(296, 15);
+            this.lblErr.Size = new System.Drawing.Size(0, 15);
             this.lblErr.TabIndex = 2;
-            this.lblErr.Text = "Имя успешно изменено / Не удалось сменить имя";
             // 
             // txtBoxChange
             // 
@@ -84,6 +83,7 @@
             this.btnChange.TabIndex = 0;
             this.btnChange.Text = "Сменить ";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // ChangeNameForm
             // 
