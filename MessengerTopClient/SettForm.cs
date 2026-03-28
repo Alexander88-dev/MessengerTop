@@ -18,8 +18,9 @@ namespace MessengerTopClient
 
         public SettForm(string fileFormColor)
         {
+          //  GroupCreatebtn.Visible = false;//!!!!!!
             InitializeComponent();
-
+            
             ColForm.Items.Add("Базовый");
             ColForm.Items.Add("Светлый");
             ColForm.Items.Add("Темный");
@@ -33,7 +34,7 @@ namespace MessengerTopClient
                 ColForm.SelectedItem = _FFColor[0];
                 FormColor();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {// Можно добавить вопрос на перезагрузку программы
                 MessageBox.Show("Файл FormColor.txt не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }    
