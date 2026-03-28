@@ -19,7 +19,5 @@ namespace MessengerTopServer
         public int User_From_Id { get; set; }
         public System.DateTime Date_time_mess { get; set; }
         public string Message1 { get; set; }
-    
-        public virtual Chat Chat { get; set; }
     }
 }

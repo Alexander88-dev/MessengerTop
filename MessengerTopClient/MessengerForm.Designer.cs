@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnSettings = new System.Windows.Forms.Button();
             this.listBox = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.label = new System.Windows.Forms.Label();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.написатьСообщениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,24 +56,24 @@
             // 
             // listBox
             // 
-            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 20;
+            this.listBox.ItemHeight = 24;
             this.listBox.Location = new System.Drawing.Point(12, 64);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(304, 544);
+            this.listBox.Size = new System.Drawing.Size(304, 556);
             this.listBox.TabIndex = 1;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
-            // richTextBox1
+            // richTextBox
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.4F);
-            this.richTextBox1.Location = new System.Drawing.Point(322, 64);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(814, 502);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox.Location = new System.Drawing.Point(322, 64);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ReadOnly = true;
+            this.richTextBox.Size = new System.Drawing.Size(814, 502);
+            this.richTextBox.TabIndex = 2;
+            this.richTextBox.Text = "";
             // 
             // label
             // 
@@ -144,7 +144,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.btnSettings);
             this.Name = "MessengerForm";
@@ -162,7 +162,7 @@
 
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.ListBox listBox;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem написатьСообщениеToolStripMenuItem;
