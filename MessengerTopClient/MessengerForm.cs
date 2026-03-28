@@ -80,8 +80,8 @@ namespace MessengerTopClient
         {
             if (listBox.SelectedItem != null)
             {
+               // richTextBox.Clear();
                 label.Text = listBox.SelectedItem.ToString();
-
             }
         }
 
@@ -100,7 +100,7 @@ namespace MessengerTopClient
                     string[] messages = response.Split('/');
                     foreach (var m in messages)
                     {
-                        richTextBox1.AppendText($"{selectedUser}: {m}{Environment.NewLine}");
+                        richTextBox.AppendText($"{selectedUser}: {m}{Environment.NewLine}");
                     }
                 }
             }
@@ -134,7 +134,7 @@ namespace MessengerTopClient
 
                 if (response == "OK")
                 {
-                    richTextBox1.AppendText($"Вы: {messageText}{Environment.NewLine}");
+                    richTextBox.AppendText($"Вы: {messageText}{Environment.NewLine}");
                     textBox1.Clear();
                 }
                 else

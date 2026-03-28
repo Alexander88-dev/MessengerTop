@@ -50,18 +50,6 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="ChatId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Message_ToChat">
-          <End Role="Chat" Type="Self.Chat" Multiplicity="1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Chat">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="Chat_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserChat_ToChat">
           <End Role="Chat" Type="Self.Chat" Multiplicity="1" />
           <End Role="UserChat" Type="Self.UserChat" Multiplicity="*" />
@@ -92,10 +80,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserChat" EntityType="Self.UserChat" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Message_ToChat" Association="Self.FK_Message_ToChat">
-            <End Role="Chat" EntitySet="Chat" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
           <AssociationSet Name="FK_UserChat_ToChat" Association="Self.FK_UserChat_ToChat">
             <End Role="Chat" EntitySet="Chat" />
             <End Role="UserChat" EntitySet="UserChat" />
@@ -116,7 +100,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Message" Relationship="Self.FK_Message_ToChat" FromRole="Chat" ToRole="Message" />
           <NavigationProperty Name="UserChat" Relationship="Self.FK_UserChat_ToChat" FromRole="Chat" ToRole="UserChat" />
         </EntityType>
         <EntityType Name="Message">
@@ -128,7 +111,6 @@
           <Property Name="User_From_Id" Type="Int32" Nullable="false" />
           <Property Name="Date_time_mess" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Chat" Relationship="Self.FK_Message_ToChat" FromRole="Message" ToRole="Chat" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -161,18 +143,6 @@
           <NavigationProperty Name="Chat" Relationship="Self.FK_UserChat_ToChat" FromRole="UserChat" ToRole="Chat" />
           <NavigationProperty Name="User" Relationship="Self.FK_UserChat_ToUser" FromRole="UserChat" ToRole="User" />
         </EntityType>
-        <Association Name="FK_Message_ToChat">
-          <End Role="Chat" Type="Self.Chat" Multiplicity="1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Chat">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="Chat_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserChat_ToChat">
           <End Role="Chat" Type="Self.Chat" Multiplicity="1" />
           <End Role="UserChat" Type="Self.UserChat" Multiplicity="*" />
@@ -203,10 +173,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="UserChat" EntityType="Self.UserChat" />
-          <AssociationSet Name="FK_Message_ToChat" Association="Self.FK_Message_ToChat">
-            <End Role="Chat" EntitySet="Chat" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
           <AssociationSet Name="FK_UserChat_ToChat" Association="Self.FK_UserChat_ToChat">
             <End Role="Chat" EntitySet="Chat" />
             <End Role="UserChat" EntitySet="UserChat" />
