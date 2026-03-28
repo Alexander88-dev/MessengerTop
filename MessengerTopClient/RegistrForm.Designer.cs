@@ -124,22 +124,20 @@
             this.lblLogEr.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lblLogEr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblLogEr.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblLogEr.Location = new System.Drawing.Point(78, 63);
+            this.lblLogEr.Location = new System.Drawing.Point(117, 62);
             this.lblLogEr.Name = "lblLogEr";
-            this.lblLogEr.Size = new System.Drawing.Size(34, 15);
+            this.lblLogEr.Size = new System.Drawing.Size(0, 15);
             this.lblLogEr.TabIndex = 4;
-            this.lblLogEr.Text = "label";
             // 
             // lblPassEr
             // 
             this.lblPassEr.AutoSize = true;
             this.lblPassEr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblPassEr.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblPassEr.Location = new System.Drawing.Point(79, 196);
+            this.lblPassEr.Location = new System.Drawing.Point(117, 195);
             this.lblPassEr.Name = "lblPassEr";
-            this.lblPassEr.Size = new System.Drawing.Size(41, 15);
+            this.lblPassEr.Size = new System.Drawing.Size(0, 15);
             this.lblPassEr.TabIndex = 4;
-            this.lblPassEr.Text = "label1";
             // 
             // RegistrForm
             // 
@@ -158,6 +156,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblLog);
             this.Name = "RegistrForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messenger Top";
             this.ResumeLayout(false);
             this.PerformLayout();
