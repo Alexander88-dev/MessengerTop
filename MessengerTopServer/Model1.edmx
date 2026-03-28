@@ -16,7 +16,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Chat_Id" Type="int" Nullable="false" />
           <Property Name="User_From_Id" Type="int" Nullable="false" />
           <Property Name="Date_time_mess" Type="datetime" Nullable="false" />
@@ -123,7 +123,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Chat_Id" Type="Int32" Nullable="false" />
           <Property Name="User_From_Id" Type="Int32" Nullable="false" />
           <Property Name="Date_time_mess" Type="DateTime" Nullable="false" Precision="3" />
@@ -197,7 +197,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServerTopEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ServerTopEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Chat" EntityType="Self.Chat" />
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -221,7 +221,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ServerTopModelStoreContainer" CdmEntityContainer="ServerTopEntities2">
+        <EntityContainerMapping StorageEntityContainer="ServerTopModelStoreContainer" CdmEntityContainer="ServerTopEntities">
           <EntitySetMapping Name="Chat">
             <EntityTypeMapping TypeName="ServerTopModel.Chat">
               <MappingFragment StoreEntitySet="Chat">

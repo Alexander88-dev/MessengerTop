@@ -57,7 +57,7 @@ namespace MessengerTopServer
                             await writer.WriteLineAsync(res);
                         }
 
-                        if (request.StartsWith("USERS_LIST"))//!!
+                        if (request.StartsWith("USERS_LIST"))
                         {
                             string[] parts = request.Split('|');
 

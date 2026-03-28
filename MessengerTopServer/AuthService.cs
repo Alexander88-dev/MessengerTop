@@ -12,7 +12,7 @@ namespace MessengerTopServer
     {
         public static async Task<string> LoginAsync(string username, string password)
         {
-            using (var db = new ServerTopEntities2())
+            using (var db = new ServerTopEntities())
             {
                 var user = await db.User.FirstOrDefaultAsync(u => u.Login == username);
 
@@ -33,7 +33,7 @@ namespace MessengerTopServer
         }
         public static async Task<string> RegisterAsync(string username, string password)
         {
-            using (var db = new ServerTopEntities2())
+            using (var db = new ServerTopEntities())
             {
                 var user_exist = await db.User.AnyAsync(u => u.Login == username);
 
@@ -60,7 +60,7 @@ namespace MessengerTopServer
 
         public static async Task<List<string>> UsersListAsync(string login)
         {
-            using (var db = new ServerTopEntities2())
+            using (var db = new ServerTopEntities())
             {
                 List<string> list = new List<string>();
                 foreach(var item in db.User) 
@@ -81,7 +81,7 @@ namespace MessengerTopServer
 
         public static async Task<string> ChangeNickAsync(string login, string NewNick)
         {
-            using (var db = new ServerTopEntities2())
+            using (var db = new ServerTopEntities())
             {
                
                 bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login == login);

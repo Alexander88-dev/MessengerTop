@@ -150,6 +150,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messenger Top";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MessengerForm_FormClosing);
+            this.Load += new System.EventHandler(this.MessengerForm_Load);
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
