@@ -22,19 +22,33 @@ namespace MessengerTopClient
             AddingToTheListAsync();
             _fileFormColor = fileFormColor;
             ColorForm();
+
+            timer1.Interval = 3000;
+            timer1.Start();
         }
         private void MessengerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Program.connection.Close();
         }
-        
+
         private async void AddingToTheListAsync()
         {
-            var response = await Program.connection.SendAsync($"USERS_LIST");
-
-            foreach (string item in response.Split('|'))
+            try
             {
-                listBox.Items.Add(item);
+                var response = await Program.connection.SendAsync($"USERS_LIST");
+                if (!string.IsNullOrEmpty(response))
+                {
+                    listBox.Items.Clear();
+                    foreach (string item in response.Split('|'))
+                    {
+                        if (!string.IsNullOrWhiteSpace(item))
+                            listBox.Items.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка обновления списка пользователей: " + ex.Message);
             }
         }
         private void btnSettings_Click(object sender, EventArgs e)
@@ -48,7 +62,7 @@ namespace MessengerTopClient
             settForm.Show();
             this.Hide();
         }
-        private void ColorForm() 
+        private void ColorForm()
         {
             try
             {
@@ -64,17 +78,77 @@ namespace MessengerTopClient
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label.Text = listBox.Text;
+            if (listBox.SelectedItem != null)
+            {
+                label.Text = listBox.SelectedItem.ToString();
+
+            }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
+            string selectedUser = listBox.SelectedItem?.ToString();
 
+            if (!string.IsNullOrEmpty(selectedUser))
+            {
+
+                string response = await Program.connection.SendAsync($"GET_MSG|{selectedUser}");
+
+                if (!string.IsNullOrEmpty(response) && response != "EMPTY" && response != "NO_NEW")
+                {
+
+                    string[] messages = response.Split('/');
+                    foreach (var m in messages)
+                    {
+                        richTextBox1.AppendText($"{selectedUser}: {m}{Environment.NewLine}");
+                    }
+                }
+            }
         }
 
         private void MessengerForm_Load(object sender, EventArgs e)
         {
 
         }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            string selectedUser = listBox.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedUser))
+            {
+                MessageBox.Show("Выберите пользователя!");
+                return;
+            }
+
+            string messageText = textBox1.Text.Trim();
+            if (string.IsNullOrEmpty(messageText)) return;
+
+            try
+            {
+                Console.WriteLine($"Отправка сообщения для {selectedUser}...");
+
+
+                string response = await Program.connection.SendAsync($"SEND|{selectedUser}|{messageText}");
+
+                Console.WriteLine($"Ответ сервера: {response}");
+
+                if (response == "OK")
+                {
+                    richTextBox1.AppendText($"Вы: {messageText}{Environment.NewLine}");
+                    textBox1.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Сервер не подтвердил получение: " + response);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ОШИБКА: {ex.Message}");
+                MessageBox.Show("Произошла критическая ошибка: " + ex.Message);
+            }
+        }
     }
 }
+    
+

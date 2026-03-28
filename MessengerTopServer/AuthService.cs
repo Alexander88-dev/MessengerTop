@@ -2,100 +2,100 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MessengerTopServer
 {
     internal class AuthService
     {
-        public static async Task<string> LoginAsync(string username, string password)
-        {
-            using (var db = new ServerTopEntities())
-            {
-                var user = await db.User.FirstOrDefaultAsync(u => u.Login == username);
 
-                if (user == null)
-                {
-                    return "LOGIN_PASSWORD_ERROR";
-                }
-                
-                bool isValid = BCrypt.Net.BCrypt.Verify(password, user.Password);
-
-                if (!isValid)
-                {
-                    return "LOGIN_PASSWORD_ERROR";
-                }
-
-                return "SUCCESS";
-            }
-        }
         public static async Task<string> RegisterAsync(string username, string password)
         {
             using (var db = new ServerTopEntities())
             {
                 var user_exist = await db.User.AnyAsync(u => u.Login == username);
-
-                if (user_exist)
-                {
-                    return "USER_EXISTS";
-                }
-
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
+                if (user_exist) return "USER_EXISTS";
 
                 User user = new User()
                 {
                     Login = username,
-                    Password = passwordHash,
-                    Nick = "",
+                    Password = BCrypt.Net.BCrypt.HashPassword(password),
+                    Nick = username,
                     Lvl = 0
                 };
                 db.User.Add(user);
                 await db.SaveChangesAsync();
-
                 return "SUCCESS";
             }
         }
 
-        public static async Task<List<string>> UsersListAsync(string login)
+
+        public static async Task<string> LoginAsync(string login, string password)
         {
             using (var db = new ServerTopEntities())
             {
-                List<string> list = new List<string>();
-                foreach(var item in db.User) 
-                {
-                    if(login != item.Login) 
-                    {
-                        if (item.Nick != "")// Плохо добавлен ник в БД, но менять не будет
-                        {
-                            list.Add(item.Nick.ToString());
-                            continue;
-                        }
-                        list.Add(item.Login.ToString());
-                    }
-                }
-                return list;
-            }
-        }
-
-        public static async Task<string> ChangeNickAsync(string login, string NewNick)
-        {
-            using (var db = new ServerTopEntities())
-            {
-               
-                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login == login);
-                if (nickExists)
-                {
-                    return "NICK_EXISTS";
-                }
-
                 var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
-                user.Nick = NewNick;
+                if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
+                {
+                    return "SUCCESS";
+                }
+                return "ERROR";
+            }
+        }
 
-                await db.SaveChangesAsync();
 
-                return "SUCCESS";
+        public static async Task<List<string>> UsersListAsync(string currentLogin)
+        {
+            using (var db = new ServerTopEntities())
+            {
+                return await db.User
+                    .Where(u => u.Login != currentLogin)
+                    .Select(u => u.Login)
+                    .ToListAsync();
+            }
+        }
+
+
+        public static async Task<bool> SaveMessageAsync(string fromUser, string toUser, string text)
+        {
+            try
+            {
+                using (var db = new ServerTopEntities())
+                {
+
+                    var sender = await db.User.FirstOrDefaultAsync(u => u.Login == fromUser);
+
+                    if (sender == null) return false;
+
+
+                    var newMessage = new Message()
+                    {
+                        Chat_Id = 0,
+                        User_From_Id = sender.Id,
+                        Date_time_mess = DateTime.Now,
+
+
+                        Message1 = text
+                    };
+
+                    db.Message.Add(newMessage);
+                    await db.SaveChangesAsync();
+
+                    Console.WriteLine($"[DB]: Сообщение от {fromUser} сохранено в базу.");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[DB ERROR]: {ex.Message}");
+
+                // ВОТ ЭТА СТРОКА ПОКАЖЕТ НАСТОЯЩУЮ ОШИБКУ:
+                if (ex.InnerException != null)
+                    Console.WriteLine($"[REAl ERROR]: {ex.InnerException.InnerException?.Message ?? ex.InnerException.Message}");
+
+                Console.ResetColor();
+                return false;
             }
         }
     }
