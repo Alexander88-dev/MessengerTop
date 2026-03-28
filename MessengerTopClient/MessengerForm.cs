@@ -21,6 +21,7 @@ namespace MessengerTopClient
             InitializeComponent();
             AddingToTheListAsync();
             _fileFormColor = fileFormColor;
+            ColorForm();
         }
         private void MessengerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -41,20 +42,24 @@ namespace MessengerTopClient
             SettForm settForm = new SettForm(_fileFormColor);
             settForm.FormClosing += (s, args) =>
             {
-                try
-                {
-                    string[] FFColor = File.ReadAllLines(_fileFormColor);
-                    FFColor = FFColor[1].Split('|');
-                    this.BackColor = Color.FromArgb(Convert.ToInt32(FFColor[0]), Convert.ToInt32(FFColor[1]), Convert.ToInt32(FFColor[2]));
-                }
-                catch
-                {
-                    MessageBox.Show("Файл FormColor.txt не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                ColorForm();
                 this.Show();
             };
             settForm.Show();
             this.Hide();
+        }
+        private void ColorForm() 
+        {
+            try
+            {
+                string[] FFColor = File.ReadAllLines(_fileFormColor);
+                FFColor = FFColor[1].Split('|');
+                this.BackColor = Color.FromArgb(Convert.ToInt32(FFColor[0]), Convert.ToInt32(FFColor[1]), Convert.ToInt32(FFColor[2]));
+            }
+            catch
+            {
+                MessageBox.Show("Файл FormColor.txt не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
