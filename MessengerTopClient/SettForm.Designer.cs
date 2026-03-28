@@ -44,6 +44,7 @@
             this.ColForm.Name = "ColForm";
             this.ColForm.Size = new System.Drawing.Size(191, 24);
             this.ColForm.TabIndex = 0;
+            this.ColForm.SelectedIndexChanged += new System.EventHandler(this.ColForm_SelectedIndexChanged);
             // 
             // lblSett
             // 
@@ -100,6 +101,8 @@
             // 
             // SettForm
             // 
+            this.AccessibleDescription = "";
+            this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -112,7 +115,9 @@
             this.Controls.Add(this.ColForm);
             this.Name = "SettForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "";
             this.Text = "Messenger Top";
+            this.Load += new System.EventHandler(this.SettForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

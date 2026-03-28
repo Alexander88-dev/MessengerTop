@@ -29,13 +29,7 @@ namespace MessengerTopClient
             await _writer.WriteLineAsync(message);
             return await _reader.ReadLineAsync();
         }
-        public void Close()
-        {
-            _reader.Close();
-            _writer.Close();
-            _client.Close();
-        }
-        public async Task<string> ChangeNameAsync(int userId, string newName)//Ал
+        public async Task<string> ChangeNameAsync(int userId, string newName)
         {
             string request = $"CHANGENAME|{userId}|{newName}";
             return await SendAsync(request);

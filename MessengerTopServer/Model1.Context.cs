@@ -13,10 +13,10 @@ namespace MessengerTopServer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ServerTopEntities2 : DbContext
+    public partial class ServerTopEntities : DbContext
     {
-        public ServerTopEntities2()
-            : base("name=ServerTopEntities2")
+        public ServerTopEntities()
+            : base("name=ServerTopEntities")
         {
         }
     

@@ -7,17 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace MessengerTopClient//!!!!!!!!
+namespace MessengerTopClient
 {
     public partial class ChangeNameForm : Form
     {
-            //int userId;
-        public ChangeNameForm()
+        private string[] _FFColor;
+        public ChangeNameForm(string fileFormColor)
         {
             InitializeComponent();
 
+            string[] FFColor = File.ReadAllLines(fileFormColor);
+            FFColor = FFColor[1].Split('|');
+            try
+            {
+                this.BackColor = Color.FromArgb(Convert.ToInt32(FFColor[0]), Convert.ToInt32(FFColor[1]), Convert.ToInt32(FFColor[2]));
+            }
+            catch
+            {
+                MessageBox.Show("Файл FormColor.txt не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -51,34 +62,5 @@ namespace MessengerTopClient//!!!!!!!!
 
             this.Close();
         }
-        //public ChangeNameForm(int id)
-        //{
-        //    userId = id;
-        //}
-
-        //private void btnCancel_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
-
-        //private void btnChange_Click(object sender, EventArgs e)
-        //{
-        //    string NewName = txtBoxChange.Text;
-
-        //    if (NewName == null)
-        //    {
-        //        MessageBox.Show("Введите нормально имя");
-        //        return;
-        //    }
-        //using (var db = new())
-        //{
-        //    var user = db.User;
-        //    if (user != null)
-        //    {
-        //        user.Name = txtBoxChange.Text;
-        //        db.SaveChanges();
-        //    }
-        //}
-        // }
     }
 }

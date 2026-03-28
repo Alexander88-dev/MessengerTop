@@ -12,14 +12,16 @@ namespace MessengerTopClient
 {
     public partial class LoginForm: System.Windows.Forms.Form
     {
-        public LoginForm()
+        private string _fileFormColor;
+        public LoginForm(string fileFormColor)
         {
             InitializeComponent();
+            _fileFormColor = fileFormColor;
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Program.connection.Close();
+         //   Program.connection.Close();
         }
 
         private async void btnLog_ClickAsync(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace MessengerTopClient
                     lblError.Text = "Неверный логин или пароль!";
                     break;
                 case "SUCCESS":
-                    MessengerForm mainForm = new MessengerForm();
+                    MessengerForm mainForm = new MessengerForm(_fileFormColor);
 
                     mainForm.FormClosing += (s, args) =>
                     {
