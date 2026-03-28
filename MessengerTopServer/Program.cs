@@ -26,6 +26,7 @@ namespace MessengerTopServer
 
         static async Task HandleClientAsync(TcpClient client)
         {
+         string loginGlobal = null;
             try
             {
                 using (NetworkStream stream = client.GetStream())
@@ -46,6 +47,7 @@ namespace MessengerTopServer
                         {
                             string[] parts = request.Split('|');
                             string result = await AuthService.LoginAsync(parts[1], parts[2]);
+                            loginGlobal = parts[1];
                             await writer.WriteLineAsync(result);
                         }
                         if (request.StartsWith("REGISTER"))
@@ -59,9 +61,11 @@ namespace MessengerTopServer
                         {
                             string[] parts = request.Split('|');
 
-                            //string result = await AuthService.ChangeNickAsync(parts[1]);
+                            var result = await AuthService.UsersListAsync(loginGlobal);
 
-                           // await writer.WriteLineAsync(result);
+                            string response = string.Join("|", result);
+
+                            await writer.WriteLineAsync(response);
                         }
                         if (request.StartsWith("CHANGE_NICK"))
                         {

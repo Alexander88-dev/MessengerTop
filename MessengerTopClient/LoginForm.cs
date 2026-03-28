@@ -30,7 +30,7 @@ namespace MessengerTopClient
             string response = await Program.connection.SendAsync($"LOGIN|{login}|{password}");
 
              switch (response)
-            {
+             {
                 case "LOGIN_PASSWORD_ERROR":
                     lblError.Text = "Неверный логин или пароль!";
                     break;

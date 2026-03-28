@@ -98,6 +98,7 @@
             this.Controls.Add(this.btnCancel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "ChangeNameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();

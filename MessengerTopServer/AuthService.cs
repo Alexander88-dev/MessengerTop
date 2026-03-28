@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,23 +58,22 @@ namespace MessengerTopServer
             }
         }
 
-        public static async Task<string> UsersListAsync(string login)//!!!!
+        public static async Task<List<string>> UsersListAsync(string login)//!!!!
         {
             using (var db = new ServerTopEntities2())
             {
-                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
-
-                if (user == null)
+                List<string> list = new List<string>();
+                foreach(var item in db.User) 
                 {
-                    return "NOT_FOUND";
+                    if(login != item.Login) 
+                    {
+                        list.Add(item.Login.ToString());   
+                    }
                 }
-
-                await db.SaveChangesAsync();
-
-                return "SUCCESS";
+                return list;
             }
         }
-        public static async Task<string> ChangeNickAsync(string login, string NewNick)
+        public static async Task<string> ChangeNickAsync(string login, string NewNick)//!!!!!!!!!!!
         {
             using (var db = new ServerTopEntities2())
             {

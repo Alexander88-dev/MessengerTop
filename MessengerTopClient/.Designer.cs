@@ -110,6 +110,7 @@
             this.Controls.Add(this.btnCancel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messenger Top";
             this.ResumeLayout(false);
             this.PerformLayout();

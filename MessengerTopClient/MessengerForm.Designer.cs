@@ -62,12 +62,14 @@
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(304, 544);
             this.listBox.TabIndex = 1;
+            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.4F);
             this.richTextBox1.Location = new System.Drawing.Point(322, 64);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(814, 502);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
@@ -140,7 +142,9 @@
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.btnSettings);
             this.Name = "MessengerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messenger Top";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MessengerForm_FormClosing);
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

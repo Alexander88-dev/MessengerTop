@@ -111,6 +111,7 @@
             this.Controls.Add(this.lblSett);
             this.Controls.Add(this.ColForm);
             this.Name = "SettForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messenger Top";
             this.ResumeLayout(false);
             this.PerformLayout();
