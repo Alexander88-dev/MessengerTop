@@ -80,7 +80,7 @@ namespace MessengerTopClient
         {
             if (listBox.SelectedItem != null)
             {
-               // richTextBox.Clear();
+                richTextBox.Clear();
                 label.Text = listBox.SelectedItem.ToString();
             }
         }

@@ -8,7 +8,6 @@ namespace MessengerTopServer
 {
     internal class AuthService
     {
-
         public static async Task<string> RegisterAsync(string username, string password)
         {
             using (var db = new ServerTopEntities())
@@ -28,7 +27,6 @@ namespace MessengerTopServer
                 return "SUCCESS";
             }
         }
-
 
         public static async Task<string> LoginAsync(string login, string password)
         {
@@ -66,7 +64,6 @@ namespace MessengerTopServer
                     var sender = await db.User.FirstOrDefaultAsync(u => u.Login == fromUser);
 
                     if (sender == null) return false;
-
 
                     var newMessage = new Message()
                     {

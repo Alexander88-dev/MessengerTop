@@ -37,7 +37,7 @@ namespace MessengerTopClient
             catch (Exception ex)
             {// Можно добавить вопрос на перезагрузку программы
                 MessageBox.Show("Файл FormColor.txt не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }    
+            }
         }
         private void FormColor()
         {
