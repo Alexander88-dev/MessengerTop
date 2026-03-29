@@ -67,6 +67,16 @@ namespace MessengerTopServer
                             var users = await AuthService.UsersListAsync(loginGlobal);
                             await writer.WriteLineAsync(string.Join("|", users));
                         }
+                        else if (request.StartsWith("CHANGE_NICK"))
+                        {
+                          //  string[] parts = request.Split('|');
+
+                            string NewNick = parts[1];
+
+                            string result = await AuthService.ChangeNickAsync(loginGlobal, NewNick);
+
+                            await writer.WriteLineAsync(result);
+                        }
                         else if (command == "SEND")
                         {
                             string to = parts[1];
@@ -98,3 +108,28 @@ namespace MessengerTopServer
         }
     }
 }
+/*
+
+ 
+
+
+  public static async Task<string> ChangeNickAsync(string login, string NewNick)
+        {
+            using (var db = new ServerTopEntities())
+            {
+               
+                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login == login);
+                if (nickExists)
+                {
+                    return "NICK_EXISTS";
+                }
+
+                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
+                user.Nick = NewNick;
+
+                await db.SaveChangesAsync();
+
+                return "SUCCESS";
+            }
+        }
+ */

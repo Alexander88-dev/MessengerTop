@@ -52,7 +52,25 @@ namespace MessengerTopServer
                     .ToListAsync();
             }
         }
+        public static async Task<string> ChangeNickAsync(string login, string NewNick)
+        {
+            using (var db = new ServerTopEntities())
+            {
 
+                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login == login);
+                if (nickExists)
+                {
+                    return "NICK_EXISTS";
+                }
+
+                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
+                user.Nick = NewNick;
+
+                await db.SaveChangesAsync();
+
+                return "SUCCESS";
+            }
+        }
 
         public static async Task<bool> SaveMessageAsync(string fromUser, string toUser, string text)
         {
