@@ -8,7 +8,6 @@ namespace MessengerTopServer
 {
     internal class AuthService
     {
-
         public static async Task<string> RegisterAsync(string username, string password)
         {
             using (var db = new ServerTopEntities())
@@ -28,7 +27,6 @@ namespace MessengerTopServer
                 return "SUCCESS";
             }
         }
-
 
         public static async Task<string> LoginAsync(string login, string password)
         {
@@ -54,7 +52,25 @@ namespace MessengerTopServer
                     .ToListAsync();
             }
         }
+        public static async Task<string> ChangeNickAsync(string login, string NewNick)
+        {
+            using (var db = new ServerTopEntities())
+            {
 
+                bool nickExists = await db.User.AnyAsync(u => u.Nick == NewNick && u.Login == login);
+                if (nickExists)
+                {
+                    return "NICK_EXISTS";
+                }
+
+                var user = await db.User.FirstOrDefaultAsync(u => u.Login == login);
+                user.Nick = NewNick;
+
+                await db.SaveChangesAsync();
+
+                return "SUCCESS";
+            }
+        }
 
         public static async Task<bool> SaveMessageAsync(string fromUser, string toUser, string text)
         {
@@ -66,7 +82,6 @@ namespace MessengerTopServer
                     var sender = await db.User.FirstOrDefaultAsync(u => u.Login == fromUser);
 
                     if (sender == null) return false;
-
 
                     var newMessage = new Message()
                     {

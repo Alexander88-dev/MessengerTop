@@ -21,7 +21,7 @@ namespace MessengerTopClient
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-         //   Program.connection.Close();
+            Program.connection.Close();
         }
 
         private async void btnLog_ClickAsync(object sender, EventArgs e)
@@ -36,6 +36,9 @@ namespace MessengerTopClient
                 case "LOGIN_PASSWORD_ERROR":
                     lblError.Text = "Неверный логин или пароль!";
                     break;
+                case "ERROR":
+                    lblError.Text = "Неверный логин или пароль!";
+                    break;
                 case "SUCCESS":
                     MessengerForm mainForm = new MessengerForm(_fileFormColor);
 
@@ -45,7 +48,7 @@ namespace MessengerTopClient
                         txtPass.Clear();
                         lblError.Text = "";
                     };
-
+                
                     mainForm.Show();
                     this.Hide();
 
